@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: coreapi-pod
+  namespace: world
+spec:
+    containers:
+    - name: coreapi
+      image: kedk2135/coreapi
+      ports:
+      - containerPort: 80
