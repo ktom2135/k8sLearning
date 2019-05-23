@@ -9,30 +9,74 @@ Namespace是对一组资源和对象的抽象集合，比如可以用来将系�
 
   * 请分别通过yaml文件和command，创建一个名为world的namespace
 
+namespace.yaml:
+
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: world
+
+
+```
+```
+
 kubectl create namespace world
 
 kubectl create -f ./namespace.yaml
 
+```
 可以使用kubectl get namespace来查看
 
 * 请分别通过yaml文件和command，创建一个pod使其隶属于上述创建的namespace
 
+```
 
 kubectl apply -f coreapi.yaml  -n world
 
+```
 在namespace world2下创建一个pod， 
+
+yarm 文件：
+
+```
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: coreapi-pod
+spec:
+    containers:
+    - name: coreapi
+      image: kedk2135/coreapi
+      ports:
+      - containerPort: 80
+
+```
+```
 kubectl apply -f coreapi_pod_without_namespace.yaml -n world2
 
 
+```
 * 请分别通过yaml文件和command，将上述namespace的名字修改为universe
+```
+   
+没有找到直接修改的操作， 思路是原来的namespace再添加新的
 
 
-* 请使用command，查询所有namespace
+```
+
+请使用command，查询所有namespace
+  
+```
 kubectl get namespace
 
 
+```
 * 请使用command，查询universe中的所有pod
 
+```
 kubectl get pod -n world
 
-* 请使用command，删除universe中的所有pod，但保留该namespace
+
+```* 请使用command，删除universe中的所有pod，但保留该namespace
