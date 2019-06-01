@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-liveness
+spec:
+  containers:
+  - image: kedk2135/coreapi:health-check
+    name: livenesspod
+    livenessProbe:
+      httpGet:
+        path: /api/values
+        port: 80
