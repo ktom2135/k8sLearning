@@ -1,0 +1,1 @@
+./MingleServer --mingle.dataDir=/mingle_data start-launchd
