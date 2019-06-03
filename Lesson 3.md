@@ -88,6 +88,12 @@ kubectl label pods coreapi-9c8fcf94f-d5ftt hello-label-
 kubectl label pods coreapi-9c8fcf94f-d5ftt  hi-label=world
 ```
 
+使用yaml文件更新：
+
+```
+kubectl apply -f aa.yaml
+```
+
 *  请使用command，查询：
 *  * 含有标签"hi-label"的所有pod
 ```
