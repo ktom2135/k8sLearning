@@ -1,10 +1,9 @@
 # Use postgres/example user/password credentials
+# docker-compose -f stack.yml up
 version: '3.1'
-
 services:
-
   db:
-    image: postgres
+    image: postgres:9.6
     restart: always
     environment:
       POSTGRES_PASSWORD: example
@@ -17,7 +16,7 @@ services:
 
   
   mingle:
-    image: kedk2135/mingle:v11
+    image: kedk2135/mingle:v1
     restart: always
     ports:
       - 8089:8080
