@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-one
+  labels:
+        FrontEnd: React
+        Language: JS
+        Webpack: v4.0.0
+        Handsontable: v7.0.0
+spec:
+    containers:
+    - name: coreapi
+      image: kedk2135/coreapi
+      ports:
+      - containerPort: 80

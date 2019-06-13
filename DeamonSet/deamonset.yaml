@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ssd-monitor
+spec:
+  selector:
+    matchLabels:
+      hello: world
+  template:
+    metadata:
+      labels:
+        hello: world
+    spec:
+      nodeSelector:
+        hello: world
+      containers:
+      - name: container-name
+        image: kedk2135/coreapi
+        
+# kubectl create -f deamonset.yaml
+# kubectl get po
+# kubectl get nodes
+# kubectl label node minikube hello=world
