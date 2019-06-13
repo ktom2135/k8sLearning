@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-out-date
+spec:
+  completions: 5
+  parallelism: 2
+  template:
+    spec:
+      containers:
+      - name: out-date
+        image: kedk2135/out
+      restartPolicy: Never
+
+
+# kubectl create -f job.yaml
