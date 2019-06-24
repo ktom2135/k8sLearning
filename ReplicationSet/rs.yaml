@@ -1,0 +1,24 @@
+apiVersion: apps/v1beate2
+kind: ReplicaSet
+metadata:
+  name: kubia-rs
+spec:
+  replicas: 3
+  selector:
+    app: kubia
+  template:
+    metadata:
+      labels:
+        app: kubia
+    spec:
+      containers:
+        - name: container-name
+          image: kedk2135/coreapi
+          ports:
+            - containerPort: 80
+
+# kubectl create -f kubia-rc.yaml
+# kubectl get pods
+# kubectl describe pod XX
+# kubectl port-forward pods/kubia-liveness 80:8099
+
