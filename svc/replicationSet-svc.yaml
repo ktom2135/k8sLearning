@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  name: kubia-rs-svc
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kubia-svc
+  template:
+    metadata:
+      labels:
+        app: kubia-svc
+    spec:
+      containers:
+        - name: container-name
+          image: kedk2135/coreapi
+          ports:
+            - name: http 
+              containerPort: 80
+            - name: https
+              containerPort: 443
+
+# kubectl delete rc kubia-rc --cascade=false
+# kubectl create -f kubia-rc.yaml
+# kubectl 
+# kubectl describe pod XX
+# kubectl port-forward pods/kubia-liveness 80:8099
+

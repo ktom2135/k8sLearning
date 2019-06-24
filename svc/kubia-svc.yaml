@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubia-svc
+spec:
+  selector:
+    app: kubia
+  ports:
+  - port: 8080
+    targetPort: 80
+
+# k create -f kubia-svc.yaml
+# k port-forward svc/kubia-svc 8998:8080
+# k get svc
+# k exec kubia-rs-jhjp9 -- curl -s http://10.103.248.24:8080/api/values
