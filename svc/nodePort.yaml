@@ -1,17 +1,20 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: kubia-svc
+  name: kubia-nodeport
 spec:
+  type: NodePort
   selector:
     app: kubia
   ports:
-  - port: 8080
+  - port: 8089
     targetPort: 80
+    nodePort: 30123
 
 # k create -f kubia-svc.yaml
 # k port-forward svc/kubia-svc 8998:8080
 # k get svc
 # k exec kubia-rs-jhjp9 -- curl -s http://10.103.248.24:8080/api/values
-
+# minikube 下，使用以下命令可以通过浏览器访问NodePort Service:
+# minikube service kubia-nodeport
 
