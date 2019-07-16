@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-config-from-yaml
+data:
+  key: value
+  hello: world
